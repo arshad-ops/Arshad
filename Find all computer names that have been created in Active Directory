@@ -1,0 +1,4 @@
+Get-ADComputer -Filter * -Properties whenCreated |
+    Where-Object { $_.whenCreated -ge (Get-Date).Date } |
+    Select-Object Name, whenCreated |
+    Sort-Object whenCreated -Descending
